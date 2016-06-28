@@ -13,7 +13,9 @@
 
       // DEPENDENCIES
       [
-        //'dvm.templates'
+
+        //'dvm.templates',
+        'wp-api-angularjs'
       ]);
 
 }());

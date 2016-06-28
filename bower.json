@@ -1,10 +1,12 @@
 {
-  "name": "elseisPlayFilter",
+  "name": "elseis-play-filter",
   "license": "MIT",
   "version": "0.0.1",
   "description": "Module for a play filter",
   "main": [
-    "./dist/elseisPlayFilter.js"
+    "./dist/elseis-play-filter.js",
+    "./dist/elseis-play-filter.templates.js",
+    "./dist/css/styles.css"
   ],
   "authors": [
     "David Möhring <davidvalentinsemail@gmail.com>"
@@ -26,7 +28,9 @@
     "karma.conf.js"
   ],
   "dependencies": {
-    "angular": "~1.5"
+    "angular": "~1.5",
+    "wp-api-angularjs": "shprink/wp-api-angularjs#^1.0.0",
+    "restangular": "^1.5.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.5"
