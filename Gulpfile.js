@@ -65,10 +65,9 @@
     name: 'example',
     ready: false
   };
-
   CONFIG.SRC_SCRIPT_PATH = CONFIG.SRC_PATH + 'scripts/';
-  CONFIG.SRC_TEMPLATE_PATH = CONFIG.SRC_PATH + 'templates/';
-  CONFIG.SRC_STYLE_PATH = CONFIG.SRC_PATH + 'styles/';
+  CONFIG.SRC_TEMPLATE_PATH = CONFIG.SRC_PATH;
+  CONFIG.SRC_STYLE_PATH = CONFIG.SRC_PATH;
   CONFIG.SRC_IMAGE_PATH = CONFIG.SRC_PATH + '_images/';
 
   CONFIG.DST_STYLE = 'css/styles';
@@ -389,7 +388,6 @@
    * #################
    */
   gulp.task('build-templates', [], function() {
-
     return gulp.src(CONFIG.SRC_TEMPLATE_PATH + '**/*.html')
         .pipe(htmlmin({
           collapseWhitespace: true,
@@ -401,7 +399,7 @@
         }))
         .pipe(ngHtml2Js({
           moduleName: 'dvm.templates',
-          prefix: 'src/templates/'
+          prefix: 'src'
         }))
         .pipe(concat(COMPONENT.name + '.templates.js'))
         .pipe(gulp.dest(CONFIG.DIST_PATH))
@@ -421,9 +419,8 @@
 
     tScriptPaths.push(CONFIG.SRC_SCRIPT_PATH + '**/*.js');
 
-    if (CONFIG.EXCLUDE_CONFIG_FILES) {
       tScriptPaths.push('!' + CONFIG.SRC_SCRIPT_PATH + '_configs/**/*.js');
-    }
+      tScriptPaths.push('!' + CONFIG.SRC_SCRIPT_PATH + '**/*.spec.js');
 
     // read all files from the scrip path
     return gulp.src(tScriptPaths)
@@ -444,7 +441,10 @@
    */
 
   function _generateSassGlob() {
-    var tSassGlob = [CONFIG.SRC_STYLE_PATH + 'sass/**/*.scss'];
+    var tSassGlob;
+
+      tSassGlob = [CONFIG.SRC_STYLE_PATH + '**/*.scss'];
+
 
     if (CONFIG.SASS_GLOB) {
       for (var tGlob in CONFIG.SASS_GLOB) {
@@ -462,7 +462,7 @@
   });
 
   gulp.task('sass-compile', [], function() {
-    return gulp.src(CONFIG.SRC_STYLE_PATH + 'sass/**/*.scss')
+    return gulp.src(_generateSassGlob())
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(CONFIG.SRC_STYLE_PATH));
   });

@@ -13,7 +13,7 @@
 
       // DEPENDENCIES
       [
-        'dvm.templates'
+        //'dvm.templates'
       ]);
 
 }());
