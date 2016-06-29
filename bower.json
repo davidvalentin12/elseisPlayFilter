@@ -29,7 +29,6 @@
   ],
   "dependencies": {
     "angular": "~1.5",
-    "wp-api-angularjs": "shprink/wp-api-angularjs#^1.0.0",
     "restangular": "^1.5.2"
   },
   "devDependencies": {

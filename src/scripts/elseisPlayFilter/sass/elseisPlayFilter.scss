@@ -1,4 +1,107 @@
-elseis-play-filter{
-  background-color:blue;
-color:blue;
+elseis-play-filter {
+  display: block;
+  background-color: #212121;
+  color: white;
+  .letter-filter {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    .letter-fitler-description {
+      padding-left: 10px;
+      -webkit-flex: 1 0 0;
+      flex: 1 0 0;
+
+    }
+    .letter-list {
+      -webkit-flex: 2 0 0;
+      flex: 2 0 0;
+      display: inline-block;
+      list-style: none;
+      ul {
+        float: right;
+      }
+      .letter {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 3px;
+        cursor: pointer;
+        &.selected-letter {
+          font-weight: bold;
+          color: #ff346a;
+        }
+      }
+    }
+
+  }
+
+  .filter-input-dropdown {
+    padding: 0 10%;
+    align-items: center;
+    height: 100px;
+    padding-top: 20px;
+    .input-filter {
+      display: inline-block;
+      width: 60%;
+      height: 35px;
+      input {
+        width: 100%;
+        &[type="text"] {
+          font-size: 1.1em;
+          background-color: #212121;
+          height: 100%;
+          color: white;
+          padding: 0px 10px;
+          border: solid 1px #c9c9c9;
+          transition: border 0.3s;
+        }
+        &[type="text"]:focus,
+        &[type="text"].focus {
+          border: solid 1px #969696;
+          outline: none;
+        }
+      }
+    }
+    .dropdown-filter {
+      z-index:1;
+      background-color:#212121;
+      width: 300px;
+      float: right;
+      display: inline-block;
+      height: 35px;
+      .dropdown-label {
+        cursor:pointer;
+        height: 100%;
+        width:100%;
+        align-items: center;
+        padding: 0 10px;
+        border-bottom:1px solid white;
+        label {
+          line-height: 35px;
+          cursor:pointer;
+        }
+      }
+      .dropdown{
+      background-color: rgba(33, 33, 33, 0.7);
+  position:absolute;
+        width:300px;
+
+        .dropdown-options{
+          list-style: none;
+          .dropdown-option{
+            color: #ff346a;
+            border-bottom:1px solid #ff346a;
+            &:hover{
+              color:#b7b7b7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .testdiv{
+  }
 }

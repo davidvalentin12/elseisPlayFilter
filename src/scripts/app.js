@@ -15,7 +15,7 @@
       [
 
         //'dvm.templates',
-        'wp-api-angularjs'
+          'restangular'
       ]);
 
 }());
