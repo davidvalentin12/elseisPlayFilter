@@ -156,5 +156,83 @@ elseis-play-filter {
       width: 100%; } }
 
 elseis-play-filter {
-  background-color: blue;
-  color: blue; }
+  display: block;
+  background-color: #212121;
+  color: white; }
+  elseis-play-filter .letter-filter {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 0 10%;
+    display: flex;
+    align-items: center;
+    height: 50px; }
+    elseis-play-filter .letter-filter .letter-fitler-description {
+      padding-left: 10px;
+      -webkit-flex: 1 0 0;
+      flex: 1 0 0; }
+    elseis-play-filter .letter-filter .letter-list {
+      -webkit-flex: 2 0 0;
+      flex: 2 0 0;
+      display: inline-block;
+      list-style: none; }
+      elseis-play-filter .letter-filter .letter-list ul {
+        float: right; }
+      elseis-play-filter .letter-filter .letter-list .letter {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 3px;
+        cursor: pointer; }
+        elseis-play-filter .letter-filter .letter-list .letter.selected-letter {
+          font-weight: bold;
+          color: #ff346a; }
+  elseis-play-filter .filter-input-dropdown {
+    padding: 0 10%;
+    align-items: center;
+    height: 100px;
+    padding-top: 20px; }
+    elseis-play-filter .filter-input-dropdown .input-filter {
+      display: inline-block;
+      width: 60%;
+      height: 35px; }
+      elseis-play-filter .filter-input-dropdown .input-filter input {
+        width: 100%; }
+        elseis-play-filter .filter-input-dropdown .input-filter input[type="text"] {
+          font-size: 1.1em;
+          background-color: #212121;
+          height: 100%;
+          color: white;
+          padding: 0px 10px;
+          border: solid 1px #c9c9c9;
+          transition: border 0.3s; }
+        elseis-play-filter .filter-input-dropdown .input-filter input[type="text"]:focus, elseis-play-filter .filter-input-dropdown .input-filter input[type="text"].focus {
+          border: solid 1px #969696;
+          outline: none; }
+    elseis-play-filter .filter-input-dropdown .dropdown-filter {
+      z-index: 1;
+      background-color: #212121;
+      width: 300px;
+      float: right;
+      display: inline-block;
+      height: 35px; }
+      elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label {
+        cursor: pointer;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        padding: 0 10px;
+        border-bottom: 1px solid white; }
+        elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label label {
+          line-height: 35px;
+          cursor: pointer; }
+      elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown {
+        background-color: rgba(33, 33, 33, 0.7);
+        position: absolute;
+        width: 300px; }
+        elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options {
+          list-style: none; }
+          elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option {
+            color: #ff346a;
+            border-bottom: 1px solid #ff346a; }
+            elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
+              color: #b7b7b7; }
+

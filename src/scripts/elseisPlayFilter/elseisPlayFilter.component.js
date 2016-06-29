@@ -22,13 +22,14 @@
    * @description
    *
    */
-  function elseisPlayFilterCtrl(Restangular) {
+  function elseisPlayFilterCtrl( Restangular) {
 
     var self = this;
     self.handleClickOnLetter = handleClickOnLetter;
     self.letterIsSelected = letterIsSelected;
     self.toggleDropdown = toggleDropdown;
     self.selectDropdownOption = selectDropdownOption;
+    self.loadAllPlays = loadAllPlays;
 
 
     /**
@@ -39,15 +40,18 @@
      *
      */
     self.$onInit = function $onInit() {
-      var obrasApi = Restangular.all('obras-api');
-      obrasApi.getList().then(function(obras) {
-        console.log(obras);
-        self.obras = obras;
-        obras.forEach(function(obra) {
-          console.log(obra);
-        })
-      });
+      self.loadAllPlays();
     };
+
+
+    self.plays = [];
+    function loadAllPlays(){
+      var playsApi = Restangular.all('obras-api');
+      playsApi.getList().then(function(play) {
+        self.plays = play;
+      });
+    }
+
 
 
     self.selectedLetter = undefined;
@@ -60,6 +64,7 @@
      */
     function handleClickOnLetter(letter) {
       self.selectedLetter = letter;
+      
     }
 
     /**
@@ -76,7 +81,7 @@
     /*
      * DROPDOWN
      */
-    self.dropdownVisible = true;
+    self.dropdownVisible = false;
     self.dropdownOptions = ['más actuales', 'más visitas', 'mejor valoradas', 'próximamente', 'últimos días'];
     self.selectedDropdownOption = 'más actuales';
     function toggleDropdown(){

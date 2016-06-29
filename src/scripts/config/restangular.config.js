@@ -6,7 +6,5 @@
         RestangularProvider.setBaseUrl('http://alltheater.elseis.es/wp-json/wp/v2/');
 
 
-      }).run(function(Restangular){
-    
-  });
+      })
 }());
