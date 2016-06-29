@@ -12,7 +12,7 @@
         bindings: {},
         controller: elseisPlaysDisplayCtrl,
         controllerAs: 'elseisPlaysDisplayCtrl',
-        templateUrl: 'src/scripts/elseisPlayFilter/elseisPlaysDisplay.tpl.html'
+        templateUrl: 'src/scripts/elseisPlaysDisplay/elseisPlaysDisplay.tpl.html'
       }
   );
 
