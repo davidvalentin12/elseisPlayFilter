@@ -65,36 +65,35 @@ elseis-play-filter {
       }
     }
     .dropdown-filter {
-      z-index:1;
-      background-color:#212121;
+      z-index: 1;
+      background-color: #212121;
       width: 300px;
       float: right;
       display: inline-block;
       height: 35px;
       .dropdown-label {
-        cursor:pointer;
+        cursor: pointer;
         height: 100%;
-        width:100%;
+        width: 100%;
         align-items: center;
         padding: 0 10px;
-        border-bottom:1px solid white;
+        border-bottom: 1px solid white;
         label {
           line-height: 35px;
-          cursor:pointer;
+          cursor: pointer;
         }
       }
-      .dropdown{
-      background-color: rgba(33, 33, 33, 0.7);
-  position:absolute;
-        width:300px;
-
-        .dropdown-options{
+      .dropdown {
+        background-color: rgba(33, 33, 33, 0.7);
+        position: absolute;
+        width: 300px;
+        .dropdown-options {
           list-style: none;
-          .dropdown-option{
+          .dropdown-option {
             color: #ff346a;
-            border-bottom:1px solid #ff346a;
-            &:hover{
-              color:#b7b7b7;
+            border-bottom: 1px solid #ff346a;
+            &:hover {
+              color: #b7b7b7;
             }
           }
         }
@@ -102,6 +101,6 @@ elseis-play-filter {
     }
   }
 
-  .testdiv{
+  .testdiv {
   }
 }
