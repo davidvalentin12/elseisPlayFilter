@@ -1,3 +1,23 @@
-elseis-play {
-  width: 100%;
-  display: inline-block; }
+elseis-play div .image-holder-div {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  cursor: pointer; }
+  elseis-play div .image-holder-div img {
+    width: 100%;
+    height: auto; }
+
+elseis-play .play-details {
+  background: transparent;
+  padding: 5px 30px;
+  background-image: url(http://alltheater.elseis.es/wp-content/themes/videotouch/images/flow.svg);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 12px 9px;
+  margin-left: 10px;
+  color: #f2f2f2; }
+  elseis-play .play-details .play-title {
+    cursor: pointer;
+    font-weight: bold; }
+  elseis-play .play-details label {
+    display: block; }

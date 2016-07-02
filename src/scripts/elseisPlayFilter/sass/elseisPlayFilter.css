@@ -51,7 +51,6 @@ elseis-play-filter {
           border: solid 1px #969696;
           outline: none; }
     elseis-play-filter .filter-input-dropdown .dropdown-filter {
-      z-index: 1;
       background-color: #212121;
       width: 300px;
       float: right;
@@ -68,6 +67,7 @@ elseis-play-filter {
           line-height: 35px;
           cursor: pointer; }
       elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown {
+        z-index: 5;
         background-color: rgba(33, 33, 33, 0.7);
         position: absolute;
         width: 300px; }
@@ -78,3 +78,6 @@ elseis-play-filter {
             border-bottom: 1px solid #ff346a; }
             elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
               color: #b7b7b7; }
+  elseis-play-filter .plays-display {
+    width: 80%;
+    margin: 0 auto; }

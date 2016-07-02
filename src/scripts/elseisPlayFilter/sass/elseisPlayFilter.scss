@@ -65,7 +65,7 @@ elseis-play-filter {
       }
     }
     .dropdown-filter {
-      z-index: 1;
+
       background-color: #212121;
       width: 300px;
       float: right;
@@ -84,6 +84,8 @@ elseis-play-filter {
         }
       }
       .dropdown {
+
+        z-index: 5;
         background-color: rgba(33, 33, 33, 0.7);
         position: absolute;
         width: 300px;
@@ -101,6 +103,8 @@ elseis-play-filter {
     }
   }
 
-  .testdiv {
+  .plays-display  {
+  width:80%;
+    margin:0 auto;
   }
 }

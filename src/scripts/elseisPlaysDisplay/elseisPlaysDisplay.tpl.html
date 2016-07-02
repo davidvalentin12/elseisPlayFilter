@@ -1,5 +1,5 @@
 <elseis-play
-        ng-repeat="play in elseisPlaysDisplayCtrl.plays"
+        ng-repeat="play in elseisPlaysDisplayCtrl.localPlays | orderBy:elseisPlaysDisplayCtrl.orderBy:'desc' "
         play="play"
-        class="span_3_of_12"
+        class="item col-lg-3 col-md-3 col-sm-12 "
 ></elseis-play>
