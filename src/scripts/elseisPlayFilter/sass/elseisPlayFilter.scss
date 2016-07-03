@@ -6,20 +6,17 @@ elseis-play-filter {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding: 0 10%;
-    display: flex;
     align-items: center;
-    height: 50px;
     .letter-fitler-description {
       padding-left: 10px;
-      -webkit-flex: 1 0 0;
-      flex: 1 0 0;
-
+      height: 50px;
+      line-height:50px;
     }
     .letter-list {
-      -webkit-flex: 2 0 0;
-      flex: 2 0 0;
       display: inline-block;
       list-style: none;
+      height: 50px;
+      line-height:50px;
       ul {
         float: right;
       }
@@ -31,6 +28,18 @@ elseis-play-filter {
         &.selected-letter {
           font-weight: bold;
           color: #ff346a;
+        }
+      }
+    }
+
+    .autoresList{
+      ul{
+        list-style: none;
+        li{
+          &:hover{
+            color: #ff346a;
+            cursor:pointer;
+          }
         }
       }
     }

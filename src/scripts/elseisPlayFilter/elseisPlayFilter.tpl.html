@@ -1,16 +1,27 @@
 <div class="">
     <section class="letter-filter">
-        <label class="letter-fitler-description">
-            Explora los títulos por autor
+        <div class="row">
+        <label class="letter-fitler-description col-lg-4 col-sm-12">
+            Explora los títulos por autor {{elseisPlayFilterCtrl.selectedAuthor.name}}
         </label>
-        <div class="letter-list">
-
+        <div class="letter-list  col-lg-8 col-sm-12">
             <ul>
-                <li class="letter"
+                <li class="letter "
                     ng-repeat="letter in elseisPlayFilterCtrl.abecedario"
                     ng-bind="letter | uppercase"
                     ng-click="elseisPlayFilterCtrl.handleClickOnLetter(letter)"
                     ng-class="{'selected-letter': elseisPlayFilterCtrl.letterIsSelected(letter)}">
+
+                </li>
+            </ul>
+        </div>
+        </div>
+        <div class="row autoresList">
+            <ul>
+                <li class="col-lg-3 "
+                    ng-repeat="author in elseisPlayFilterCtrl.displayedAuthors"
+                    ng-bind="author.name"
+                ng-click="elseisPlayFilterCtrl.handleAuthorSelection(author)">
 
                 </li>
             </ul>
@@ -37,6 +48,6 @@
         </div>
     </section>
     <section class="plays-display">
-        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy" filter="elseisPlayFilterCtrl.filter"></elseis-plays-display>
+        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy" filter="elseisPlayFilterCtrl.filter" author-filter="elseisPlayFilterCtrl.selectedAuthor.id"></elseis-plays-display>
     </section>
 </div>

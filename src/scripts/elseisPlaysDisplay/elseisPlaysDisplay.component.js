@@ -12,7 +12,8 @@
             bindings: {
                 plays: '<',
                 orderBy: '<',
-                filter: '<'
+                filter: '<',
+                authorFilter: '<'
             },
             controller: elseisPlaysDisplayCtrl,
             controllerAs: 'elseisPlaysDisplayCtrl',
@@ -47,31 +48,52 @@
             setLikesToNumber();
             setViewsToNumber();
             setFormatedDate();
+
+            onAuthorFilterChange(changesObject);
             onOrderByChange(changesObject);
             onFilterChange(changesObject);
+            if (self.localSelectedAuthor != undefined) {
+                filterPlaysByAuthor();
+            }
+            if (self.localCategoryFilter != undefined) {
+                filterPlaysByCategory();
+            }
+        };
 
-        }
-
-        function onFilterChange(changesObject){
+        function onFilterChange(changesObject) {
             if (changesObject.filter) {
-                if (changesObject.filter.currentValue == 'antesDeHoyYHoy') {
-                    var currentDate = new Date();
-                    self.localPlays = self.localPlays.filter(function (play) {
-                        return new Date(play.estreno) <= currentDate;
-                    })
-                }
-                if (changesObject.filter.currentValue == 'despuesDeHoy') {
-                    var currentDate = new Date();
-                    self.localPlays = self.localPlays.filter(function (play) {
-                        return new Date(play.estreno) > currentDate;
-                    })
-
-                }
+                self.localCategoryFilter = changesObject.filter.currentValue;
             }
         }
-        function onOrderByChange(changesObject){
+        function onOrderByChange(changesObject) {
             if (changesObject.orderBy) {
                 self.orderBy = changesObject.orderBy.currentValue;
+            }
+        }
+        function onAuthorFilterChange(changesObject) {
+            if (changesObject.authorFilter) {
+                self.localSelectedAuthor = changesObject.authorFilter.currentValue;
+            }
+        }
+        self.localSelectedAuthor = undefined;
+        function filterPlaysByAuthor() {
+            self.localPlays = self.localPlays.filter(function (play) {
+                return play.autor[0] == self.localSelectedAuthor;
+            })
+        }
+        self.localCategoryFilter = undefined;
+        function filterPlaysByCategory() {
+
+            var currentDate = new Date();
+            if (self.localCategoryFilter == 'antesDeHoyYHoy') {
+                self.localPlays = self.localPlays.filter(function (play) {
+                    return new Date(play.estreno) <= currentDate;
+                })
+            }
+            if (self.localCategoryFilter == 'despuesDeHoy') {
+                self.localPlays = self.localPlays.filter(function (play) {
+                    return new Date(play.estreno) > currentDate;
+                })
             }
         }
 
@@ -96,7 +118,6 @@
                  */
                 var estreno = play.estreno;
                 play.estreno = estreno.slice(0, 4) + '-' + estreno.slice(4, 6) + '-' + estreno.slice(6, 8);
-
             })
 
 

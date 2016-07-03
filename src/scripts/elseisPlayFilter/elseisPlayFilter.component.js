@@ -30,6 +30,8 @@
         self.toggleDropdown = toggleDropdown;
         self.selectDropdownOption = selectDropdownOption;
         self.loadAllPlays = loadAllPlays;
+        self.loadAllAuthors = loadAllAuthors;
+        self.handleAuthorSelection = handleAuthorSelection;
 
 
         /**
@@ -41,6 +43,7 @@
          */
         self.$onInit = function $onInit() {
             self.loadAllPlays();
+            self.loadAllAuthors();
         };
 
 
@@ -63,7 +66,32 @@
          */
         function handleClickOnLetter(letter) {
             self.selectedLetter = letter;
+            resetSelectedAuthor();
+            filterAuthorsByFirstLetter(letter);
+        }
 
+        self.displayedAuthors = [];
+        function filterAuthorsByFirstLetter(selectedLetter) {
+            self.displayedAuthors = self.authors.filter(function (author) {
+                var firstLetter = author.name.slice(0, 1).toUpperCase();
+
+                return firstLetter == selectedLetter.toUpperCase();
+            });
+        }
+
+        self.authors = [];
+        self.selectedAuthor = '';
+        function loadAllAuthors() {
+            var authorsApi = Restangular.all('autor');
+            authorsApi.getList().then(function (authors) {
+                self.authors = authors;
+            });
+        }
+        function handleAuthorSelection(author){
+            self.selectedAuthor = author;
+        }
+        function resetSelectedAuthor(){
+            self.selectedAuthor = '';
         }
 
         /**
@@ -74,6 +102,7 @@
          */
         function letterIsSelected(letter) {
             return self.selectedLetter == letter;
+
         }
 
 
