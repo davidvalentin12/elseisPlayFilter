@@ -14,7 +14,7 @@
       // DEPENDENCIES
       [
 
-        //'dvm.templates',
+        'dvm.templates',
           'restangular'
       ]);
 
@@ -30,68 +30,6 @@
 
       }])
 }());
-(function () {
-    'use strict';
-
-    /**
-     * @ngdoc directive
-     * @name elseis.playFilter.components:elseisPlay
-     * @description
-     *
-     */
-
-    elseisPlayCtrl.$inject = ["$window", "$scope"];
-    angular.module('elseis.playFilter').component('elseisPlay', {
-            bindings: {
-                play: '<'
-            },
-            controller: elseisPlayCtrl,
-            controllerAs: 'elseisPlayCtrl',
-            templateUrl: 'src/scripts/elseisPlay/elseisPlay.tpl.html'
-        }
-    );
-
-    /**
-     * @ngdoc controller
-     * @name elseis.playFilter.controllers:elseisPlayCtrl
-     * @description
-     *
-     */
-    function elseisPlayCtrl($window, $scope) {
-
-        var self = this;
-
-
-        /**
-         * @ngdoc method
-         * @name $onInit
-         * @methodOf elseis.playFilter.controllers:elseisPlayCtrl
-         * @description
-         *
-         */
-        self.$onInit = function $onInit() {
-        };
-
-
-        self.$onChanges = function (changesObject) {
-            setImgUrl();
-        };
-
-        self.redirectToPlay = function redirectToPlay(){
-            $window.location.href = self.play.link;
-        };
-
-
-        function setImgUrl(){
-            var miniatura = self.play.miniatura;
-            self.play.miniatura = miniatura.slice(0, miniatura.length-4)+ '-630x370'+miniatura.slice(miniatura.length-4, miniatura.length);
-
-        };
-
-
-    }
-})();
-
 (function() {
   'use strict';
 
@@ -152,13 +90,13 @@
     function loadAllPlays() {
       self.currentSearchfilter= 'obras-api/?';
       var playsApi;
-      if (self.taxonomy) {
+      if (self.taxonomy != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[taxonomy]=' + self.taxonomy;
       }
-      if (self.term) {
+      if (self.term != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[term]=' + self.term;
       }
-      if (self.kw) {
+      if (self.kw != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[kw]=' + self.kw;
       }
       //pagination
@@ -170,7 +108,7 @@
         self.plays = play;
       });
     }
-    self.kwInput = undefined;
+    self.kwInput = '';
     function loadPlaysFilteredByKW(){
       self.kw = self.kwInput;
       self.loadAllPlays();
@@ -181,7 +119,7 @@
 
 
 
-    self.selectedLetter = undefined;
+    self.selectedLetter = '';
     self.abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     /**
      * @name handleClickOnLetter
@@ -408,6 +346,68 @@
 
 
         }
+
+
+    }
+})();
+
+(function () {
+    'use strict';
+
+    /**
+     * @ngdoc directive
+     * @name elseis.playFilter.components:elseisPlay
+     * @description
+     *
+     */
+
+    elseisPlayCtrl.$inject = ["$window", "$scope"];
+    angular.module('elseis.playFilter').component('elseisPlay', {
+            bindings: {
+                play: '<'
+            },
+            controller: elseisPlayCtrl,
+            controllerAs: 'elseisPlayCtrl',
+            templateUrl: 'src/scripts/elseisPlay/elseisPlay.tpl.html'
+        }
+    );
+
+    /**
+     * @ngdoc controller
+     * @name elseis.playFilter.controllers:elseisPlayCtrl
+     * @description
+     *
+     */
+    function elseisPlayCtrl($window, $scope) {
+
+        var self = this;
+
+
+        /**
+         * @ngdoc method
+         * @name $onInit
+         * @methodOf elseis.playFilter.controllers:elseisPlayCtrl
+         * @description
+         *
+         */
+        self.$onInit = function $onInit() {
+        };
+
+
+        self.$onChanges = function (changesObject) {
+            setImgUrl();
+        };
+
+        self.redirectToPlay = function redirectToPlay(){
+            $window.location.href = self.play.link;
+        };
+
+
+        function setImgUrl(){
+            var miniatura = self.play.miniatura;
+            self.play.miniatura = miniatura.slice(0, miniatura.length-4)+ '-630x370'+miniatura.slice(miniatura.length-4, miniatura.length);
+
+        };
 
 
     }

@@ -57,13 +57,13 @@
     function loadAllPlays() {
       self.currentSearchfilter= 'obras-api/?';
       var playsApi;
-      if (self.taxonomy) {
+      if (self.taxonomy != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[taxonomy]=' + self.taxonomy;
       }
-      if (self.term) {
+      if (self.term != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[term]=' + self.term;
       }
-      if (self.kw) {
+      if (self.kw != '') {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[kw]=' + self.kw;
       }
       //pagination
@@ -75,7 +75,7 @@
         self.plays = play;
       });
     }
-    self.kwInput = undefined;
+    self.kwInput = '';
     function loadPlaysFilteredByKW(){
       self.kw = self.kwInput;
       self.loadAllPlays();
@@ -86,7 +86,7 @@
 
 
 
-    self.selectedLetter = undefined;
+    self.selectedLetter = '';
     self.abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     /**
      * @name handleClickOnLetter
