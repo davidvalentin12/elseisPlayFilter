@@ -155,6 +155,30 @@ elseis-play-filter {
     elseis-play-filter .span_1_of_12 {
       width: 100%; } }
 
+elseis-play div .image-holder-div {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  cursor: pointer; }
+  elseis-play div .image-holder-div img {
+    width: 100%;
+    height: auto; }
+
+elseis-play .play-details {
+  background: transparent;
+  padding: 5px 30px;
+  background-image: url(http://alltheater.elseis.es/wp-content/themes/videotouch/images/flow.svg);
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: 12px 9px;
+  margin-left: 10px;
+  color: #f2f2f2; }
+  elseis-play .play-details .play-title {
+    cursor: pointer;
+    font-weight: bold; }
+  elseis-play .play-details label {
+    display: block; }
+
 elseis-play-filter {
   display: block;
   background-color: #212121;
@@ -163,18 +187,16 @@ elseis-play-filter {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
     padding: 0 10%;
-    display: flex;
-    align-items: center;
-    height: 50px; }
+    align-items: center; }
     elseis-play-filter .letter-filter .letter-fitler-description {
       padding-left: 10px;
-      -webkit-flex: 1 0 0;
-      flex: 1 0 0; }
+      height: 50px;
+      line-height: 50px; }
     elseis-play-filter .letter-filter .letter-list {
-      -webkit-flex: 2 0 0;
-      flex: 2 0 0;
       display: inline-block;
-      list-style: none; }
+      list-style: none;
+      height: 50px;
+      line-height: 50px; }
       elseis-play-filter .letter-filter .letter-list ul {
         float: right; }
       elseis-play-filter .letter-filter .letter-list .letter {
@@ -185,6 +207,11 @@ elseis-play-filter {
         elseis-play-filter .letter-filter .letter-list .letter.selected-letter {
           font-weight: bold;
           color: #ff346a; }
+    elseis-play-filter .letter-filter .autoresList ul {
+      list-style: none; }
+      elseis-play-filter .letter-filter .autoresList ul li:hover {
+        color: #ff346a;
+        cursor: pointer; }
   elseis-play-filter .filter-input-dropdown {
     padding: 0 10%;
     align-items: center;
@@ -208,7 +235,6 @@ elseis-play-filter {
           border: solid 1px #969696;
           outline: none; }
     elseis-play-filter .filter-input-dropdown .dropdown-filter {
-      z-index: 1;
       background-color: #212121;
       width: 300px;
       float: right;
@@ -225,6 +251,7 @@ elseis-play-filter {
           line-height: 35px;
           cursor: pointer; }
       elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown {
+        z-index: 5;
         background-color: rgba(33, 33, 33, 0.7);
         position: absolute;
         width: 300px; }
@@ -235,4 +262,14 @@ elseis-play-filter {
             border-bottom: 1px solid #ff346a; }
             elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
               color: #b7b7b7; }
+  elseis-play-filter .plays-display {
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(33, 33, 33, 0.7); }
 
+elseis-plays-display elseis-play {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 25% !important;
+  margin-bottom: 20px;
+  min-height: 300px !important; }

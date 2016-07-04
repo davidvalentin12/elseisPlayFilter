@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="elseis.playFilter">
+<head>
+    <title>Elseis Play Filter</title>
+</head>
+<body ng-controller="TestCtrl as test">
+
+<elseis-play-filter taxonomy="test.config.taxonomy" term="test.config.term" kw="test.config.kw"></elseis-play-filter>
+
+
+
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+<script src="dist/elseis-play-filter.js"></script>
+<script src="dist/elseis-play-filter.templates.js"></script>
+<link rel="stylesheet" href="dist/css/styles.css">
+
+<script type="text/javascript">
+    angular.module('elseis.playFilter')
+            .controller('TestCtrl', function($scope) {
+                var self = this;
+
+                self.config ={
+                    taxonomy: undefined,
+                    term: undefined,
+                    kw: undefined
+                }
+
+
+            });
+</script>
+</body>
+</html>

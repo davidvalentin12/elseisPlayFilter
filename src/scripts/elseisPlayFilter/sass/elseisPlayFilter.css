@@ -82,4 +82,6 @@ elseis-play-filter {
             elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
               color: #b7b7b7; }
   elseis-play-filter .plays-display {
-    margin: 0 auto; }
+    margin: 0 auto;
+    display: block;
+    background-color: rgba(33, 33, 33, 0.7); }
