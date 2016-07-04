@@ -13,8 +13,8 @@
 
     <!-- inject:css -->
     <link rel="stylesheet" href="src/styles/dvmStyles.css">
-    <link rel="stylesheet" href="src/scripts/elseisPlay/sass/elseisPlay.css">
     <link rel="stylesheet" href="src/scripts/elseisPlayFilter/sass/elseisPlayFilter.css">
+    <link rel="stylesheet" href="src/scripts/elseisPlay/sass/elseisPlay.css">
     <link rel="stylesheet" href="src/scripts/elseisPlaysDisplay/sass/elseisPlaysDisplay.css">
     <!-- endinject -->
 
@@ -23,9 +23,9 @@
          ############################## -->
 
 </head>
-<body ng-controller="TestCtrl" style="background-color: #212121;">
+<body ng-controller="TestCtrl as test" style="background-color: #212121;">
 <!-- Example Usage -->
-<elseis-play-filter></elseis-play-filter>
+<elseis-play-filter taxonomy="test.config.taxonomy" term="test.config.term" kw="test.config.kw"></elseis-play-filter>
 
 <!-- ###############################
      ### [BEGIN] JS DEPENDENCIES ###
@@ -43,6 +43,7 @@
 <!-- inject:js -->
 <script src="src/scripts/app.js"></script>
 <script src="src/scripts/elseisPlayFilter/shared/elseisPlayFilter.service.js"></script>
+<script src="src/scripts/elseisPlayFilter/shared/elseisPlayFilter.filters.js"></script>
 <script src="src/scripts/elseisPlaysDisplay/elseisPlaysDisplay.component.js"></script>
 <script src="src/scripts/elseisPlayFilter/elseisPlayFilter.component.js"></script>
 <script src="src/scripts/elseisPlay/elseisPlay.component.js"></script>
@@ -56,7 +57,13 @@
 <script type="text/javascript">
     angular.module('elseis.playFilter')
             .controller('TestCtrl', function($scope) {
+                var self = this;
 
+                self.config ={
+                    taxonomy: '123',
+                    term: undefined,
+                    kw: undefined
+                }
 
 
             });
