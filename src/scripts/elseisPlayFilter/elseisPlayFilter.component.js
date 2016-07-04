@@ -36,6 +36,7 @@
     self.loadAllPlays = loadAllPlays;
     self.loadAllAuthors = loadAllAuthors;
     self.handleAuthorSelection = handleAuthorSelection;
+    self.loadPlaysFilteredByKW = loadPlaysFilteredByKW;
 
 
     /**
@@ -54,6 +55,7 @@
     self.plays = [];
     self.currentSearchfilter= 'obras-api/?';
     function loadAllPlays() {
+      self.currentSearchfilter= 'obras-api/?';
       var playsApi;
       if (self.taxonomy) {
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[taxonomy]=' + self.taxonomy;
@@ -66,11 +68,17 @@
       }
       //pagination
       self.currentSearchfilter =  self.currentSearchfilter + '&filter[posts_per_page]=-1&filter[paged]=1';
-      playsApi = Restangular.all( self.currentSearchfilter);
 
+
+      playsApi = Restangular.all( self.currentSearchfilter);
       playsApi.getList().then(function(play) {
         self.plays = play;
       });
+    }
+    self.kwInput = undefined;
+    function loadPlaysFilteredByKW(){
+      self.kw = self.kwInput;
+      self.loadAllPlays();
     }
 
 
@@ -78,8 +86,6 @@
 
 
 
-
-    
     self.selectedLetter = undefined;
     self.abecedario = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     /**

@@ -29,8 +29,7 @@
     </section>
     <section class="filter-input-dropdown">
         <div class="input-filter">
-            <input type="text" placeholder="Busca por título, autor, director, compañía, género, tema...">
-
+            <input type="text" ng-model="elseisPlayFilterCtrl.kwInput" ng-change="elseisPlayFilterCtrl.loadPlaysFilteredByKW()" placeholder="Busca por título, autor, director, compañía, género, tema...">
         </div>
         <div class="dropdown-filter">
             <div class="dropdown-label" ng-click="elseisPlayFilterCtrl.toggleDropdown()">
