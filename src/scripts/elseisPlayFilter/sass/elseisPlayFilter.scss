@@ -1,10 +1,14 @@
+  $white: rgb(242,242,242);
+  $lowOpacityBlack : rgba(23,23,23, 0.7);
+ $red:#ed174f;
+ $black: #171717;
 elseis-play-filter {
   display: block;
-  background-color: #212121;
-  color: white;
+  background-color: $black;
+  color: $white;
   .letter-filter {
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: 1px solid $white;
+    border-bottom: 1px solid $white;
     padding: 0 10%;
     align-items: center;
     .letter-fitler-description {
@@ -27,7 +31,7 @@ elseis-play-filter {
         cursor: pointer;
         &.selected-letter {
           font-weight: bold;
-          color: #ff346a;
+          color: $red;
         }
       }
     }
@@ -37,7 +41,7 @@ elseis-play-filter {
         list-style: none;
         li{
           &:hover{
-            color: #ff346a;
+            color: $red;
             cursor:pointer;
           }
         }
@@ -59,23 +63,23 @@ elseis-play-filter {
         width: 100%;
         &[type="text"] {
           font-size: 1.1em;
-          background-color: #212121;
+          background-color: $black;
           height: 100%;
-          color: white;
+          color: $white;
           padding: 0px 10px;
-          border: solid 1px #c9c9c9;
+          border: solid 1px $white;
           transition: border 0.3s;
         }
         &[type="text"]:focus,
         &[type="text"].focus {
-          border: solid 1px #969696;
+          border: solid 1px $white;
           outline: none;
         }
       }
     }
     .dropdown-filter {
 
-      background-color: #212121;
+      background-color: $black;
       width: 300px;
       float: right;
       display: inline-block;
@@ -86,7 +90,7 @@ elseis-play-filter {
         width: 100%;
         align-items: center;
         padding: 0 10px;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid $white;
         label {
           line-height: 35px;
           cursor: pointer;
@@ -95,16 +99,16 @@ elseis-play-filter {
       .dropdown {
 
         z-index: 5;
-        background-color: rgba(33, 33, 33, 0.7);
+        background-color: $lowOpacityBlack;
         position: absolute;
         width: 300px;
         .dropdown-options {
           list-style: none;
           .dropdown-option {
-            color: #ff346a;
-            border-bottom: 1px solid #ff346a;
+            color: $red;
+            border-bottom: 1px solid $red;
             &:hover {
-              color: #b7b7b7;
+              color: $white;
             }
           }
         }
@@ -116,6 +120,6 @@ elseis-play-filter {
     margin:0 auto;
 
     display:block;
-    background-color: rgba(33, 33, 33, 0.7);
+    background-color: $lowOpacityBlack;
   }
 }

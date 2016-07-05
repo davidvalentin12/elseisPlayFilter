@@ -1,8 +1,10 @@
+$white: rgb(242,242,242);
+$lowOpacityBlack : rgba(23,23,23, 0.7);
+$red:#ed174f;
+$black: #171717;
+
 elseis-play {
   div {
-    .play {
-
-    }
     .image-holder-div {
       position: relative;
       overflow: hidden;
@@ -23,12 +25,13 @@ elseis-play {
     background-repeat: no-repeat;
     background-position: 12px 9px;
     margin-left: 10px;
-    color: rgb(242, 242, 242);
+    color: $white;
     .play-title {
       cursor: pointer;
       font-weight: bold;
     }
     label{
+      font-weight: normal;
       display: block;
     }
   }

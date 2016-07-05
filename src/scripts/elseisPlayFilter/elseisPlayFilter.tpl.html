@@ -35,7 +35,7 @@
             <div class="dropdown-label" ng-click="elseisPlayFilterCtrl.toggleDropdown()">
                 <label ng-bind="elseisPlayFilterCtrl.selectedDropdownOption | uppercase"></label>
             </div>
-            <div class="dropdown" ng-show="elseisPlayFilterCtrl.dropdownVisible">
+            <div class="dropdown animated fadeIn " ng-if="elseisPlayFilterCtrl.dropdownVisible">
                 <ul class="dropdown-options">
                     <li class="dropdown-option dropdown-label "
                         ng-repeat="dropdownOption in elseisPlayFilterCtrl.dropdownOptions"
@@ -47,6 +47,6 @@
         </div>
     </section>
     <section class="plays-display row">
-        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy" filter="elseisPlayFilterCtrl.filter" author-filter="elseisPlayFilterCtrl.selectedAuthor.id"></elseis-plays-display>
+        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy" filter="elseisPlayFilterCtrl.filter" ></elseis-plays-display>
     </section>
 </div>

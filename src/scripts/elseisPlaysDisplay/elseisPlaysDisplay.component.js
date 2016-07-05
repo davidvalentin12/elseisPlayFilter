@@ -44,21 +44,31 @@
 
 
         self.$onChanges = function (changesObject) {
+
             self.localPlays = angular.copy(self.plays);
             setLikesToNumber();
             setViewsToNumber();
             setFormatedDate();
-
-            onAuthorFilterChange(changesObject);
             onOrderByChange(changesObject);
             onFilterChange(changesObject);
-            if (self.localSelectedAuthor != undefined) {
-                filterPlaysByAuthor();
-            }
             if (self.localCategoryFilter != undefined) {
                 filterPlaysByCategory();
             }
         };
+
+        function mergePlays(newPlays, oldPlays){
+            newPlays.forEach(function(newPlay, index){
+                if(self.localPlays.every(function(oldPlay){return newPlay.id != oldPlay.id;})){
+                    self.localPlays.push(newPlay);
+                }
+            });
+            self.localPlays.forEach(function(oldPlay, index){
+                if(newPlays.every(function(newPlay){return newPlay.id != oldPlay.id})){
+                    
+                    self.localPlays.splice(index,1);
+                }
+            })
+        }
 
         function onFilterChange(changesObject) {
             if (changesObject.filter) {
@@ -87,11 +97,13 @@
             var currentDate = new Date();
             if (self.localCategoryFilter == 'antesDeHoyYHoy') {
                 self.localPlays = self.localPlays.filter(function (play) {
+                   
                     return new Date(play.estreno) <= currentDate;
                 })
             }
             if (self.localCategoryFilter == 'despuesDeHoy') {
                 self.localPlays = self.localPlays.filter(function (play) {
+                    
                     return new Date(play.estreno) > currentDate;
                 })
             }
@@ -113,9 +125,10 @@
         function setFormatedDate() {
             self.localPlays.forEach(function (play) {
                 /**
-                 * recived: 20160101
+                 * received: 20160101
                  * wanted: 2016-01-01
                  */
+                
                 var estreno = play.estreno;
                 play.estreno = estreno.slice(0, 4) + '-' + estreno.slice(4, 6) + '-' + estreno.slice(6, 8);
             })

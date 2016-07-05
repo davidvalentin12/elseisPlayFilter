@@ -26,7 +26,7 @@
    * @description
    *
    */
-  function elseisPlayFilterCtrl(Restangular) {
+  function elseisPlayFilterCtrl(Restangular, $window) {
 
     var self = this;
     self.handleClickOnLetter = handleClickOnLetter;
@@ -71,10 +71,14 @@
 
 
       playsApi = Restangular.all( self.currentSearchfilter);
-      playsApi.getList().then(function(play) {
-        self.plays = play;
+      playsApi.getList().then(function(plays) {
+        self.plays = plays;
       });
     }
+
+      /*
+       * INPUT
+       */
     self.kwInput = '';
     function loadPlaysFilteredByKW(){
       self.kw = self.kwInput;
@@ -119,7 +123,7 @@
     }
 
     function handleAuthorSelection(author) {
-      self.selectedAuthor = author;
+      $window.location.href = author.link;
     }
 
     function resetSelectedAuthor() {

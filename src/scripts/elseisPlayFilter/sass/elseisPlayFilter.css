@@ -1,10 +1,10 @@
 elseis-play-filter {
   display: block;
-  background-color: #212121;
-  color: white; }
+  background-color: #171717;
+  color: #f2f2f2; }
   elseis-play-filter .letter-filter {
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
     padding: 0 10%;
     align-items: center; }
     elseis-play-filter .letter-filter .letter-fitler-description {
@@ -25,11 +25,11 @@ elseis-play-filter {
         cursor: pointer; }
         elseis-play-filter .letter-filter .letter-list .letter.selected-letter {
           font-weight: bold;
-          color: #ff346a; }
+          color: #ed174f; }
     elseis-play-filter .letter-filter .autoresList ul {
       list-style: none; }
       elseis-play-filter .letter-filter .autoresList ul li:hover {
-        color: #ff346a;
+        color: #ed174f;
         cursor: pointer; }
   elseis-play-filter .filter-input-dropdown {
     padding: 0 10%;
@@ -44,17 +44,17 @@ elseis-play-filter {
         width: 100%; }
         elseis-play-filter .filter-input-dropdown .input-filter input[type="text"] {
           font-size: 1.1em;
-          background-color: #212121;
+          background-color: #171717;
           height: 100%;
-          color: white;
+          color: #f2f2f2;
           padding: 0px 10px;
-          border: solid 1px #c9c9c9;
+          border: solid 1px #f2f2f2;
           transition: border 0.3s; }
         elseis-play-filter .filter-input-dropdown .input-filter input[type="text"]:focus, elseis-play-filter .filter-input-dropdown .input-filter input[type="text"].focus {
-          border: solid 1px #969696;
+          border: solid 1px #f2f2f2;
           outline: none; }
     elseis-play-filter .filter-input-dropdown .dropdown-filter {
-      background-color: #212121;
+      background-color: #171717;
       width: 300px;
       float: right;
       display: inline-block;
@@ -65,23 +65,23 @@ elseis-play-filter {
         width: 100%;
         align-items: center;
         padding: 0 10px;
-        border-bottom: 1px solid white; }
+        border-bottom: 1px solid #f2f2f2; }
         elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label label {
           line-height: 35px;
           cursor: pointer; }
       elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown {
         z-index: 5;
-        background-color: rgba(33, 33, 33, 0.7);
+        background-color: rgba(23, 23, 23, 0.7);
         position: absolute;
         width: 300px; }
         elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options {
           list-style: none; }
           elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option {
-            color: #ff346a;
-            border-bottom: 1px solid #ff346a; }
+            color: #ed174f;
+            border-bottom: 1px solid #ed174f; }
             elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
-              color: #b7b7b7; }
+              color: #f2f2f2; }
   elseis-play-filter .plays-display {
     margin: 0 auto;
     display: block;
-    background-color: rgba(33, 33, 33, 0.7); }
+    background-color: rgba(23, 23, 23, 0.7); }

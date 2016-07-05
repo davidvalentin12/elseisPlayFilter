@@ -20,4 +20,5 @@ elseis-play .play-details {
     cursor: pointer;
     font-weight: bold; }
   elseis-play .play-details label {
+    font-weight: normal;
     display: block; }
