@@ -1,8 +1,6 @@
-elseis-plays-display {
-  transition: all 0.2s ease-in-out; }
-  elseis-plays-display elseis-play {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 25% !important;
-    margin-bottom: 20px;
-    min-height: 300px !important; }
+elseis-plays-display elseis-play {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 25% !important;
+  margin-bottom: 20px;
+  min-height: 300px !important; }

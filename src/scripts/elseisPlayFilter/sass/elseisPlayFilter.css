@@ -37,6 +37,7 @@ elseis-play-filter {
     height: 100px;
     padding-top: 20px; }
     elseis-play-filter .filter-input-dropdown .input-filter {
+      position: relative;
       display: inline-block;
       width: 60%;
       height: 35px; }
@@ -53,12 +54,18 @@ elseis-play-filter {
         elseis-play-filter .filter-input-dropdown .input-filter input[type="text"]:focus, elseis-play-filter .filter-input-dropdown .input-filter input[type="text"].focus {
           border: solid 1px #f2f2f2;
           outline: none; }
+      elseis-play-filter .filter-input-dropdown .input-filter i {
+        position: absolute;
+        top: 10px;
+        right: 15px; }
     elseis-play-filter .filter-input-dropdown .dropdown-filter {
       background-color: #171717;
       width: 300px;
       float: right;
       display: inline-block;
       height: 35px; }
+      elseis-play-filter .filter-input-dropdown .dropdown-filter i {
+        line-height: 36px; }
       elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label {
         cursor: pointer;
         height: 100%;
@@ -66,6 +73,8 @@ elseis-play-filter {
         align-items: center;
         padding: 0 10px;
         border-bottom: 1px solid #f2f2f2; }
+        elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label.dropdown-active {
+          border-bottom: 1px solid #ed174f; }
         elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown-label label {
           line-height: 35px;
           cursor: pointer; }
@@ -81,7 +90,14 @@ elseis-play-filter {
             border-bottom: 1px solid #ed174f; }
             elseis-play-filter .filter-input-dropdown .dropdown-filter .dropdown .dropdown-options .dropdown-option:hover {
               color: #f2f2f2; }
+  elseis-play-filter .load-all {
+    padding: 0 10%; }
+    elseis-play-filter .load-all label {
+      font-weight: normal; }
+      elseis-play-filter .load-all label.load-all-label {
+        cursor: pointer; }
   elseis-play-filter .plays-display {
     margin: 0 auto;
+    min-height: 330px;
     display: block;
     background-color: rgba(23, 23, 23, 0.7); }

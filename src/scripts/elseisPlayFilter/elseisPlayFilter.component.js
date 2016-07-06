@@ -37,6 +37,7 @@
     self.loadAllAuthors = loadAllAuthors;
     self.handleAuthorSelection = handleAuthorSelection;
     self.loadPlaysFilteredByKW = loadPlaysFilteredByKW;
+    self.loadWithoutPagination = loadWithoutPagination;
 
 
     /**
@@ -53,8 +54,11 @@
 
 
     self.plays = [];
+    self.allPages = false;
     self.currentSearchfilter= 'obras-api/?';
     function loadAllPlays() {
+
+      self.totalPages = 0;
       self.currentSearchfilter= 'obras-api/?';
       var playsApi;
       if (self.taxonomy != '') {
@@ -67,12 +71,17 @@
         self.currentSearchfilter =  self.currentSearchfilter + '&filter[kw]=' + self.kw;
       }
       //pagination
-      self.currentSearchfilter =  self.currentSearchfilter + '&filter[posts_per_page]=-1&filter[paged]=1';
-
+      if(self.allPages){
+        self.currentSearchfilter =  self.currentSearchfilter + '&filter[posts_per_page]=-1&filter[paged]=1';
+      }else{
+        self.currentSearchfilter =  self.currentSearchfilter + '&filter[posts_per_page]=4&filter[paged]=1';
+      }
 
       playsApi = Restangular.all( self.currentSearchfilter);
-      playsApi.getList().then(function(plays) {
-        self.plays = plays;
+      playsApi.getList().then(function(response) {
+        self.plays = response.data;
+        self.totalPages = parseInt(response.headers()['x-wp-totalpages']);
+        self.totalPlays = parseInt(response.headers()['x-wp-total']);
       });
     }
 
@@ -85,6 +94,11 @@
       self.loadAllPlays();
     }
 
+
+    function loadWithoutPagination(){
+      self.allPages = true;
+      self.loadAllPlays();
+    }
 
 
 

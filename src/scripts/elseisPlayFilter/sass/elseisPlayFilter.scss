@@ -56,6 +56,7 @@ elseis-play-filter {
     height: 100px;
     padding-top: 20px;
     .input-filter {
+      position:relative;
       display: inline-block;
       width: 60%;
       height: 35px;
@@ -76,9 +77,16 @@ elseis-play-filter {
           outline: none;
         }
       }
+      i{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+      }
     }
     .dropdown-filter {
-
+        i{
+  line-height: 36px;
+        }
       background-color: $black;
       width: 300px;
       float: right;
@@ -91,6 +99,9 @@ elseis-play-filter {
         align-items: center;
         padding: 0 10px;
         border-bottom: 1px solid $white;
+        &.dropdown-active{
+          border-bottom: 1px solid $red;
+        }
         label {
           line-height: 35px;
           cursor: pointer;
@@ -116,9 +127,20 @@ elseis-play-filter {
     }
   }
 
+  .load-all{
+
+    padding: 0 10%;
+    label{
+      font-weight:normal;
+      &.load-all-label{
+        cursor:pointer;
+      }
+    }
+  }
+
   .plays-display  {
     margin:0 auto;
-
+    min-height:330px;
     display:block;
     background-color: $lowOpacityBlack;
   }

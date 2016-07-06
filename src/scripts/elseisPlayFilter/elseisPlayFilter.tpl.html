@@ -1,39 +1,46 @@
 <div class="">
     <section class="letter-filter">
         <div class="row">
-        <label class="letter-fitler-description col-lg-4 col-sm-12">
-            Explora los títulos por autor {{elseisPlayFilterCtrl.selectedAuthor.name}}
-        </label>
-        <div class="letter-list  col-lg-8 col-sm-12">
-            <ul>
-                <li class="letter "
-                    ng-repeat="letter in elseisPlayFilterCtrl.abecedario"
-                    ng-bind="letter | uppercase"
-                    ng-click="elseisPlayFilterCtrl.handleClickOnLetter(letter)"
-                    ng-class="{'selected-letter': elseisPlayFilterCtrl.letterIsSelected(letter)}">
+            <label class="letter-fitler-description col-lg-4 col-sm-12">
+                Explora los títulos por autor {{elseisPlayFilterCtrl.selectedAuthor.name}}
+            </label>
+            <div class="letter-list  col-lg-8 col-sm-12">
+                <ul>
+                    <li class="letter "
+                        ng-repeat="letter in elseisPlayFilterCtrl.abecedario"
+                        ng-bind="letter | uppercase"
+                        ng-click="elseisPlayFilterCtrl.handleClickOnLetter(letter)"
+                        ng-class="{'selected-letter': elseisPlayFilterCtrl.letterIsSelected(letter)}">
 
-                </li>
-            </ul>
-        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="row autoresList">
             <ul>
                 <li class="col-lg-3 "
                     ng-repeat="author in elseisPlayFilterCtrl.displayedAuthors"
                     ng-bind="author.name"
-                ng-click="elseisPlayFilterCtrl.handleAuthorSelection(author)">
+                    ng-click="elseisPlayFilterCtrl.handleAuthorSelection(author)">
 
                 </li>
             </ul>
         </div>
     </section>
-    <section class="filter-input-dropdown">
+    <section class="filter-input-dropdown row">
         <div class="input-filter">
-            <input type="text" ng-model="elseisPlayFilterCtrl.kwInput" ng-change="elseisPlayFilterCtrl.loadPlaysFilteredByKW()" placeholder="Busca por título, autor, director, compañía, género, tema...">
+            <input type="text" ng-model="elseisPlayFilterCtrl.kwInput"
+                   ng-change="elseisPlayFilterCtrl.loadPlaysFilteredByKW()"
+                   placeholder="Busca por título, autor, director, compañía, género, tema...">
+            <i class="fa fa-search"></i>
         </div>
         <div class="dropdown-filter">
-            <div class="dropdown-label" ng-click="elseisPlayFilterCtrl.toggleDropdown()">
+            <div class="dropdown-label"
+                 ng-click="elseisPlayFilterCtrl.toggleDropdown()"
+                 ng-class="{'dropdown-active':elseisPlayFilterCtrl.dropdownVisible}">
                 <label ng-bind="elseisPlayFilterCtrl.selectedDropdownOption | uppercase"></label>
+                <i class="fa  pull-right"
+                   ng-class="{'fa-caret-up':elseisPlayFilterCtrl.dropdownVisible, 'fa-caret-down':!elseisPlayFilterCtrl.dropdownVisible}"></i>
             </div>
             <div class="dropdown animated fadeIn " ng-if="elseisPlayFilterCtrl.dropdownVisible">
                 <ul class="dropdown-options">
@@ -46,7 +53,16 @@
             </div>
         </div>
     </section>
+    <section class="load-all row">
+        <label class="pull-left"> Mostrando {{elseisPlayFilterCtrl.plays.length}} de {{elseisPlayFilterCtrl.totalPlays}}
+            obras</label>
+        <label class="pull-right load-all-label"
+               ng-click="elseisPlayFilterCtrl.loadWithoutPagination()"
+               ng-if="elseisPlayFilterCtrl.totalPlays > 4 && !elseisPlayFilterCtrl.allPages"
+        >Ver todas</label>
+    </section>
     <section class="plays-display row">
-        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy" filter="elseisPlayFilterCtrl.filter" ></elseis-plays-display>
+        <elseis-plays-display plays="elseisPlayFilterCtrl.plays" order-by="elseisPlayFilterCtrl.orderBy"
+                              filter="elseisPlayFilterCtrl.filter"></elseis-plays-display>
     </section>
 </div>
