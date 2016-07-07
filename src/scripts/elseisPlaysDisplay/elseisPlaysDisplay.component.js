@@ -13,7 +13,10 @@
                 plays: '<',
                 orderBy: '<',
                 filter: '<',
-                authorFilter: '<'
+                authorFilter: '<',
+                totalPages: '<',
+                totalPlays: '<',
+                loadWithoutPagination: '&'
             },
             controller: elseisPlaysDisplayCtrl,
             controllerAs: 'elseisPlaysDisplayCtrl',

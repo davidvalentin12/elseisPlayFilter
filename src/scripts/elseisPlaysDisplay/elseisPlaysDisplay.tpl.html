@@ -1,3 +1,11 @@
+<section class="load-all row">
+    <label class="pull-left"> Mostrando {{elseisPlaysDisplayCtrl.localPlays.length}} de {{elseisPlaysDisplayCtrl.totalPlays}}
+        obras</label>
+    <label class="pull-right load-all-label"
+           ng-click="elseisPlaysDisplayCtrl.loadWithoutPagination()"
+           ng-if="elseisPlaysDisplayCtrl.totalPlays > 4 && !elseisPlaysDisplayCtrl.allPages"
+    >Ver todas</label>
+</section>
 <elseis-play
         ng-repeat="play in elseisPlaysDisplayCtrl.localPlays | orderBy:elseisPlaysDisplayCtrl.orderBy:'desc' "
         play="play"
