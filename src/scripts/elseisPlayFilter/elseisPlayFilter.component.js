@@ -59,6 +59,7 @@
         function loadAllPlays() {
             // reset total pages
             self.totalPages = 0;
+
             setSearchFilter();
             var playsApi;
 
@@ -71,14 +72,23 @@
             });
         }
 
-        function setPagesInfo(response){
+        function setPagesInfo(response) {
             self.totalPages = parseInt(response.headers()['x-wp-totalpages']);
             self.totalPlays = parseInt(response.headers()['x-wp-total']);
         }
-        
+
+        function loadWithoutPagination() {
+            self.allPages = true;
+            self.loadAllPlays();
+        }
+
         function setSearchFilter() {
             //base
             self.currentSearchfilter = 'obras-api/?';
+            //category
+            if (self.filter != '') {
+                self.currentSearchfilter = self.currentSearchfilter + '&' + self.filter;
+            }
             //taxonomy
             if (self.taxonomy != '') {
                 self.currentSearchfilter = self.currentSearchfilter + '&filter[taxonomy]=' + self.taxonomy;
@@ -110,19 +120,16 @@
             }
         }
 
-        var delay = (function(){
+        var delay = (function () {
             var timer = 0;
-            return function(callback, ms){
-                clearTimeout (timer);
+            return function (callback, ms) {
+                clearTimeout(timer);
                 timer = setTimeout(callback, ms);
             };
         })();
 
 
-        function loadWithoutPagination() {
-            self.allPages = true;
-            self.loadAllPlays();
-        }
+
 
 
         self.selectedLetter = '';
@@ -141,8 +148,7 @@
 
         self.displayedAuthors = [];
         function filterAuthorsByFirstLetter(selectedLetter) {
-            if(self.authors){
-console.log(self.authors);
+            if (self.authors) {
                 self.displayedAuthors = self.authors.filter(function (author) {
                     var firstLetter = author.name.slice(0, 1).toUpperCase();
 
@@ -197,7 +203,7 @@ console.log(self.authors);
         }
 
 
-        function _filterByDropdownCategory(category) {
+        function _filterByDropdownCategory() {
             /**
              * 'más actuales': estreno <= hoy // order by fecha estreno desc
              *
@@ -209,22 +215,23 @@ console.log(self.authors);
              *
              *
              */
-            if (category == 'más actuales') {
-                self.filter = 'antesDeHoyYHoy';
+            if (self.selectedDropdownOption == 'más actuales') {
+                self.filter = 'filter[meta_compare]=%3C%3D&filter[meta_value]=20160708&filter[meta_key]=estreno&filter[order]=DESC&filter[orderby]=meta_value_num';
             }
-            if (category == 'próximamente') {
-                self.filter = 'despuesDeHoy';
+            if (self.selectedDropdownOption == 'próximamente') {
+                self.filter =  'filter[meta_compare]=%3E&filter[meta_value]=20160708&filter[meta_key]=estreno&filter[order]=ASC&filter[orderby]=meta_value_num';
             }
-            if (category == 'mejor valoradas') {
+            if (self.selectedDropdownOption == 'mejor valoradas') {
                 self.orderBy = 'likes';
-                self.filter = 'todos';
+                self.filter = 'filter[meta_key]=_touchsize_likes&filter[order]=DESC&filter[orderby]=meta_value_num';
             }
-            if (category == 'más visitas') {
+            if (self.selectedDropdownOption == 'más visitas') {
                 self.orderBy = 'views';
-                self.filter = 'todos';
+                self.filter = 'filter[meta_key]=ts_article_views&filter[order]=DESC&filter[orderby]=meta_value_num';
             }
 
 
+            self.loadAllPlays();
         }
 
 

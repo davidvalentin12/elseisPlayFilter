@@ -53,13 +53,15 @@
             </div>
         </div>
     </section>
-
+    <section class="load-all row">
+        <label class="pull-left"> Mostrando {{elseisPlayFilterCtrl.plays.length}} de {{elseisPlayFilterCtrl.totalPlays}}
+            obras</label>
+        <label class="pull-right load-all-label"
+               ng-click="elseisPlayFilterCtrl.loadWithoutPagination()"
+               ng-if="elseisPlayFilterCtrl.totalPlays > 4 && !elseisPlayFilterCtrl.allPages"
+        >Ver todas</label>
+    </section>
     <section class="plays-display row">
-        <elseis-plays-display plays="elseisPlayFilterCtrl.plays"
-                              order-by="elseisPlayFilterCtrl.orderBy"
-                              filter="elseisPlayFilterCtrl.filter"
-                              total-pages="elseisPlayFilterCtrl.totalPages"
-                              total-plays="elseisPlayFilterCtrl.totalPlays"
-                              load-without-pagination="elseisPlayFilterCtrl.loadWithoutPagination()"></elseis-plays-display>
+        <elseis-plays-display plays="elseisPlayFilterCtrl.plays"></elseis-plays-display>
     </section>
 </div>

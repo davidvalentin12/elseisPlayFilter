@@ -42,11 +42,11 @@
 
         self.$onChanges = function (changesObject) {
             setImgUrl();
-            jQuery('.play').each(function(i, el) {
-                window.setTimeout(function(){
-                    jQuery(el).addClass('animated bounceInUp');
-                }, 100 * i);
-            });
+            //jQuery('.play').each(function(i, el) {
+            //    window.setTimeout(function(){
+            //        jQuery(el).addClass('animated bounceInUp');
+            //    }, 100 * i);
+            //});
         };
 
         self.redirectToPlay = function redirectToPlay(){
@@ -55,10 +55,12 @@
 
 
         function setImgUrl(){
-            var miniatura = self.play.miniatura;
-            self.play.miniatura = miniatura.slice(0, miniatura.length-4)+ '-630x370'+miniatura.slice(miniatura.length-4, miniatura.length);
+            if(self.play.miniatura){
+                var miniatura = self.play.miniatura;
+                self.play.miniatura = miniatura.slice(0, miniatura.length-4)+ '-630x370'+miniatura.slice(miniatura.length-4, miniatura.length);
+            }
 
-        };
+        }
 
 
     }

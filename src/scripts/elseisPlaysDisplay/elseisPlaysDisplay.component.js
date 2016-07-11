@@ -11,9 +11,9 @@
     angular.module('elseis.playFilter').component('elseisPlaysDisplay', {
             bindings: {
                 plays: '<',
-                orderBy: '<',
-                filter: '<',
-                authorFilter: '<',
+               //orderBy: '<',
+               //filter: '<',
+               //authorFilter: '<',
                 totalPages: '<',
                 totalPlays: '<',
                 loadWithoutPagination: '&'
@@ -49,14 +49,14 @@
         self.$onChanges = function (changesObject) {
 
             self.localPlays = angular.copy(self.plays);
-            setLikesToNumber();
-            setViewsToNumber();
-            setFormatedDate();
-            onOrderByChange(changesObject);
-            onFilterChange(changesObject);
-            if (self.localCategoryFilter != undefined) {
-                filterPlaysByCategory();
-            }
+            //setLikesToNumber();
+            //setViewsToNumber();
+            //setFormatedDate();
+            //onOrderByChange(changesObject);
+            //onFilterChange(changesObject);
+            //if (self.localCategoryFilter != undefined) {
+            //    filterPlaysByCategory();
+            //}
         };
 
         function mergePlays(newPlays, oldPlays){
