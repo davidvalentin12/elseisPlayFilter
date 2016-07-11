@@ -3524,7 +3524,8 @@ elseis-play .play-details {
 elseis-play-filter {
   display: block;
   background-color: #171717;
-  color: #f2f2f2; }
+  color: #f2f2f2;
+  text-align: left !important; }
   elseis-play-filter .letter-filter {
     border-top: 1px solid #f2f2f2;
     border-bottom: 1px solid #f2f2f2;
