@@ -11,12 +11,9 @@
     angular.module('elseis.playFilter').component('elseisPlaysDisplay', {
             bindings: {
                 plays: '<',
-               //orderBy: '<',
+               orderBy: '<'
                //filter: '<',
-               //authorFilter: '<',
-                totalPages: '<',
-                totalPlays: '<',
-                loadWithoutPagination: '&'
+               //authorFilter: '<'
             },
             controller: elseisPlaysDisplayCtrl,
             controllerAs: 'elseisPlaysDisplayCtrl',
@@ -49,10 +46,10 @@
         self.$onChanges = function (changesObject) {
 
             self.localPlays = angular.copy(self.plays);
-            //setLikesToNumber();
-            //setViewsToNumber();
+            setLikesToNumber();
+            setViewsToNumber();
             //setFormatedDate();
-            //onOrderByChange(changesObject);
+            onOrderByChange(changesObject);
             //onFilterChange(changesObject);
             //if (self.localCategoryFilter != undefined) {
             //    filterPlaysByCategory();

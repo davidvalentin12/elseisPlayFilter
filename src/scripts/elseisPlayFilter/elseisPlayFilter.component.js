@@ -48,6 +48,7 @@
          *
          */
         self.$onInit = function $onInit() {
+            _filterByDropdownCategory();
             self.loadAllPlays();
             self.loadAllAuthors();
         };
@@ -55,8 +56,10 @@
 
         self.plays = [];
         self.allPages = false;
+        self.loading = false;
         self.currentSearchfilter = 'obras-api/?';
         function loadAllPlays() {
+            self.loading = true;
             // reset total pages
             self.totalPages = 0;
 
@@ -65,10 +68,11 @@
 
             playsApi = Restangular.all(self.currentSearchfilter);
             playsApi.getList().then(function (response) {
-                if (self.plays.length != response.data.length) {
-                    self.plays = response.data;
-                }
+                self.plays = response.data;
                 setPagesInfo(response);
+                $timeout(function(){
+                    self.loading = false;
+                }, 500)
             });
         }
 
@@ -127,9 +131,6 @@
                 timer = setTimeout(callback, ms);
             };
         })();
-
-
-
 
 
         self.selectedLetter = '';
@@ -191,7 +192,7 @@
          */
         self.dropdownVisible = false;
         self.dropdownOptions = ['más actuales', 'más visitas', 'mejor valoradas', 'próximamente'];
-        self.selectedDropdownOption = 'más actuales';
+        self.selectedDropdownOption = 'más visitas';
         function toggleDropdown() {
             self.dropdownVisible = !self.dropdownVisible;
         }
@@ -219,7 +220,7 @@
                 self.filter = 'filter[meta_compare]=%3C%3D&filter[meta_value]=20160708&filter[meta_key]=estreno&filter[order]=DESC&filter[orderby]=meta_value_num';
             }
             if (self.selectedDropdownOption == 'próximamente') {
-                self.filter =  'filter[meta_compare]=%3E&filter[meta_value]=20160708&filter[meta_key]=estreno&filter[order]=ASC&filter[orderby]=meta_value_num';
+                self.filter = 'filter[meta_compare]=%3E&filter[meta_value]=20160708&filter[meta_key]=estreno&filter[order]=ASC&filter[orderby]=meta_value_num';
             }
             if (self.selectedDropdownOption == 'mejor valoradas') {
                 self.orderBy = 'likes';

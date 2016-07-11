@@ -145,4 +145,23 @@ elseis-play-filter {
     display:block;
     background-color: $lowOpacityBlack;
   }
+  .loader-display  {
+    margin:0 auto;
+    min-height:330px;
+    background-color: $lowOpacityBlack;
+display:table;
+    .loader{
+      display:table-cell;
+      width: 60px;
+      height: 60px;
+      margin:0 auto;
+      background-image: url('http://alltheater.elseis.es/wp-content/themes/videotouch/images/loading.gif');
+      background-repeat: no-repeat;
+      background-size: 60px auto;
+      display: inline-block;
+      clear: both;
+      margin-top: 75px;
+    }
+  }
+
 }

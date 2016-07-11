@@ -102,3 +102,19 @@ elseis-play-filter {
     min-height: 330px;
     display: block;
     background-color: rgba(23, 23, 23, 0.7); }
+  elseis-play-filter .loader-display {
+    margin: 0 auto;
+    min-height: 330px;
+    background-color: rgba(23, 23, 23, 0.7);
+    display: table; }
+    elseis-play-filter .loader-display .loader {
+      display: table-cell;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      background-image: url("http://alltheater.elseis.es/wp-content/themes/videotouch/images/loading.gif");
+      background-repeat: no-repeat;
+      background-size: 60px auto;
+      display: inline-block;
+      clear: both;
+      margin-top: 75px; }

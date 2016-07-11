@@ -42,11 +42,11 @@
 
         self.$onChanges = function (changesObject) {
             setImgUrl();
-            //jQuery('.play').each(function(i, el) {
-            //    window.setTimeout(function(){
-            //        jQuery(el).addClass('animated bounceInUp');
-            //    }, 100 * i);
-            //});
+            jQuery('.play').each(function(i, el) {
+                window.setTimeout(function(){
+                    jQuery(el).addClass('animated fadeIn');
+                }, 100 * i);
+            });
         };
 
         self.redirectToPlay = function redirectToPlay(){

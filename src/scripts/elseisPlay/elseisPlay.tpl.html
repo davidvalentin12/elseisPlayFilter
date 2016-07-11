@@ -1,13 +1,14 @@
 <div class="play ">
     <div class="image-holder-div">
-        <img ng-src="{{elseisPlayCtrl.play.miniatura}}"  ng-click="elseisPlayCtrl.redirectToPlay()"a>
+        <img ng-src="{{elseisPlayCtrl.play.miniatura}}" ng-click="elseisPlayCtrl.redirectToPlay()">
+
+
     </div>
 
     <div class="play-details">
-        <label class="play-title" ng-bind="elseisPlayCtrl.play.title.rendered" ng-click="elseisPlayCtrl.redirectToPlay()"></label>
+        <label class="play-title" ng-bind="elseisPlayCtrl.play.title.rendered"
+               ng-click="elseisPlayCtrl.redirectToPlay()"></label>
         <label class="play-director">Director {{elseisPlayCtrl.play.director}}</label>
         <label class="play-year">Año {{elseisPlayCtrl.play.year}}</label>
-        <label class="play-year">views {{elseisPlayCtrl.play.views}}</label>
-        <label class="play-year">likes {{elseisPlayCtrl.play.likes}}</label>
     </div>
 </div>
