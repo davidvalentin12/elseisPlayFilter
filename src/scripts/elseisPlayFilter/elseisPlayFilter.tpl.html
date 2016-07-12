@@ -1,17 +1,16 @@
 <div class="">
     <section class="letter-filter">
         <div class="row">
-            <label class="letter-fitler-description col-lg-4 col-sm-12">
+            <label class="letter-fitler-description col-lg-3 col-md-3 col-xs-12">
                 Explora los títulos por autor {{elseisPlayFilterCtrl.selectedAuthor.name}}
             </label>
-            <div class="letter-list  col-lg-8 col-sm-12">
+            <div class="letter-list  col-lg-9 col-md-9 col-xs-12">
                 <ul>
                     <li class="letter "
                         ng-repeat="letter in elseisPlayFilterCtrl.abecedario"
                         ng-bind="letter | uppercase"
                         ng-click="elseisPlayFilterCtrl.handleClickOnLetter(letter)"
                         ng-class="{'selected-letter': elseisPlayFilterCtrl.letterIsSelected(letter)}">
-
                     </li>
                 </ul>
             </div>
@@ -28,13 +27,13 @@
         </div>
     </section>
     <section class="filter-input-dropdown row">
-        <div class="input-filter">
+        <div class="input-filter col-lg-8 col-md-8 col-sm-8   col-xs-12">
             <input type="text" ng-model="elseisPlayFilterCtrl.kwInput"
                    ng-change="elseisPlayFilterCtrl.loadPlaysFilteredByKW()"
                    placeholder="Busca por título, autor, director, compañía, género, tema...">
             <i class="fa fa-search"></i>
         </div>
-        <div class="dropdown-filter">
+        <div class="dropdown-filter col-lg-4 col-md-4 col-sm-4   col-xs-12">
             <div class="dropdown-label"
                  ng-click="elseisPlayFilterCtrl.toggleDropdown()"
                  ng-class="{'dropdown-active':elseisPlayFilterCtrl.dropdownVisible}">
@@ -67,8 +66,5 @@
                              ></elseis-plays-display>
     </section>
     <section class="loader-display row" ng-show="elseisPlayFilterCtrl.loading">
-    <div class="loader">
-
-    </div>
     </section>
 </div>
