@@ -1,8 +1,13 @@
-<div class="play ">
-    <div class="image-holder-div">
+<article class="play ">
+    <div class="image-holder-div default-effect image-holder">
         <img ng-src="{{elseisPlayCtrl.play.miniatura}}" ng-click="elseisPlayCtrl.redirectToPlay()">
 
-
+        <div class="overlay-effect">
+            <div class="entry-overlay">
+                <a class="view-more" href="{{elseisPlayCtrl.play.link}}">
+                    <i class="icon-play"></i>
+                    <span>play</span>
+                </a></div></div>
     </div>
 
     <div class="play-details">
@@ -11,4 +16,4 @@
         <label class="play-director">Director {{elseisPlayCtrl.play.director}}</label>
         <label class="play-year">Año {{elseisPlayCtrl.play.year}}</label>
     </div>
-</div>
+</article>

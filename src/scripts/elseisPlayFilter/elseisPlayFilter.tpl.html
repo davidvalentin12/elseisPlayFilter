@@ -1,6 +1,6 @@
 <div class="">
-    <section class="letter-filter">
-        <div class="row">
+    <section class="letter-filter   col-xs-12">
+
             <label class="letter-fitler-description col-lg-3 col-md-3 col-xs-12">
                 Explora los títulos por autor {{elseisPlayFilterCtrl.selectedAuthor.name}}
             </label>
@@ -14,8 +14,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
-        <div class="row autoresList">
+        <div class=" autoresList" ng-show="elseisPlayFilterCtrl.displayedAuthors.length > 0">
             <ul>
                 <li class="col-lg-3 "
                     ng-repeat="author in elseisPlayFilterCtrl.displayedAuthors"
@@ -26,14 +25,14 @@
             </ul>
         </div>
     </section>
-    <section class="filter-input-dropdown row">
-        <div class="input-filter col-lg-8 col-md-8 col-sm-8   col-xs-12">
+    <section class="filter-input-dropdown ">
+        <div class="input-filter col-lg-8 col-md-8 col-sm-8    col-xs-12">
             <input type="text" ng-model="elseisPlayFilterCtrl.kwInput"
                    ng-change="elseisPlayFilterCtrl.loadPlaysFilteredByKW()"
                    placeholder="Busca por título, autor, director, compañía, género, tema...">
             <i class="fa fa-search"></i>
         </div>
-        <div class="dropdown-filter col-lg-4 col-md-4 col-sm-4   col-xs-12">
+        <div class="dropdown-filter col-lg-4 col-md-4 col-sm-4    col-xs-12">
             <div class="dropdown-label"
                  ng-click="elseisPlayFilterCtrl.toggleDropdown()"
                  ng-class="{'dropdown-active':elseisPlayFilterCtrl.dropdownVisible}">
@@ -52,19 +51,32 @@
             </div>
         </div>
     </section>
-    <section class="load-all row" ng-show="elseisPlayFilterCtrl.plays && elseisPlayFilterCtrl.plays.length > 0">
-        <label class="pull-left"> Mostrando {{elseisPlayFilterCtrl.plays.length}} de {{elseisPlayFilterCtrl.totalPlays}}
-            obras</label>
-        <label class="pull-right load-all-label"
-               ng-click="elseisPlayFilterCtrl.loadWithoutPagination()"
-               ng-if="elseisPlayFilterCtrl.totalPlays > 4 && !elseisPlayFilterCtrl.allPages"
-        >Ver todas</label>
+    <section class="load-all row " ng-show="elseisPlayFilterCtrl.plays && elseisPlayFilterCtrl.plays.length > 0 ">
+        <div class="col-xs-6 " >
+            <label class="pull-left" ng-show="elseisPlayFilterCtrl.totalPlays > 4 && !elseisPlayFilterCtrl.allPages"> Mostrando {{elseisPlayFilterCtrl.plays.length}} de {{elseisPlayFilterCtrl.totalPlays}}
+                obras</label>
+        </div>
+        <div class="col-xs-6 ">
+            <label class="pull-right   load-all-label"
+                   ng-click="elseisPlayFilterCtrl.loadWithoutPagination()"
+                   ng-show="elseisPlayFilterCtrl.totalPlays > 4 && !elseisPlayFilterCtrl.allPages"
+            >Ver todas</label>
+        </div>
+
     </section>
     <section class="plays-display row" ng-show="!elseisPlayFilterCtrl.loading">
         <elseis-plays-display plays="elseisPlayFilterCtrl.plays"
                               order-by="elseisPlayFilterCtrl.orderBy"
-                             ></elseis-plays-display>
+        ></elseis-plays-display>
     </section>
     <section class="loader-display row" ng-show="elseisPlayFilterCtrl.loading">
+        <div class="loader animated fadeIn">
+        </div>
+    </section>
+    <section class="no-results-display row" ng-show="elseisPlayFilterCtrl.totalPlays == 0 && !elseisPlayFilterCtrl.loading">
+        <div class="no-results animated fadeIn">
+           <label>No hay resultados para la búsqueda "{{elseisPlayFilterCtrl.kw}}"</label>
+
+        </div>
     </section>
 </div>

@@ -260,9 +260,15 @@
         function filterAuthorsByFirstLetter(selectedLetter) {
             if (self.authors) {
                 self.displayedAuthors = self.authors.filter(function (author) {
-                    var firstLetter = author.name.slice(0, 1).toUpperCase();
-
-                    return firstLetter == selectedLetter.toUpperCase();
+                    var names = author.name.split(/\s+/);
+                    var match = false;
+                    names.forEach(function(name){
+                        var firstLetter = name.slice(0, 1).toUpperCase();
+                         if(firstLetter == selectedLetter.toUpperCase()){
+                             match = true;
+                         }
+                    });
+                    return match;
                 });
             }
         }

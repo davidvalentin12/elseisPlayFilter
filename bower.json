@@ -6,7 +6,8 @@
   "main": [
     "./dist/elseis-play-filter.js",
     "./dist/elseis-play-filter.templates.js",
-    "./dist/css/styles.css"
+    "./dist/css/styles.css",
+    "./dist/images/ring-alt.gif"
   ],
   "authors": [
     "David Möhring <davidvalentinsemail@gmail.com>"
