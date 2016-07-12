@@ -53,7 +53,7 @@
             </div>
         </div>
     </section>
-    <section class="load-all row">
+    <section class="load-all row" ng-show="elseisPlayFilterCtrl.plays && elseisPlayFilterCtrl.plays.length > 0">
         <label class="pull-left"> Mostrando {{elseisPlayFilterCtrl.plays.length}} de {{elseisPlayFilterCtrl.totalPlays}}
             obras</label>
         <label class="pull-right load-all-label"

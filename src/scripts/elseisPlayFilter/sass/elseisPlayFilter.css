@@ -99,7 +99,6 @@ elseis-play-filter {
         cursor: pointer; }
   elseis-play-filter .plays-display {
     margin: 0 auto;
-    min-height: 330px;
     display: block;
     background-color: rgba(23, 23, 23, 0.7); }
   elseis-play-filter .loader-display {

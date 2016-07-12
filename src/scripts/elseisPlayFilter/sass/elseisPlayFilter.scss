@@ -1,12 +1,12 @@
-  $white: rgb(242,242,242);
-  $lowOpacityBlack : rgba(23,23,23, 0.7);
- $red:#ed174f;
- $black: #171717;
+$white: rgb(242, 242, 242);
+$lowOpacityBlack: rgba(23, 23, 23, 0.7);
+$red: #ed174f;
+$black: #171717;
 elseis-play-filter {
   display: block;
   background-color: $black;
   color: $white;
-  text-align:left !important;
+  text-align: left !important;
   .letter-filter {
     border-top: 1px solid $white;
     border-bottom: 1px solid $white;
@@ -15,13 +15,13 @@ elseis-play-filter {
     .letter-fitler-description {
       padding-left: 10px;
       height: 50px;
-      line-height:50px;
+      line-height: 50px;
     }
     .letter-list {
       display: inline-block;
       list-style: none;
       height: 50px;
-      line-height:50px;
+      line-height: 50px;
       ul {
         float: right;
       }
@@ -37,13 +37,13 @@ elseis-play-filter {
       }
     }
 
-    .autoresList{
-      ul{
+    .autoresList {
+      ul {
         list-style: none;
-        li{
-          &:hover{
+        li {
+          &:hover {
             color: $red;
-            cursor:pointer;
+            cursor: pointer;
           }
         }
       }
@@ -57,7 +57,7 @@ elseis-play-filter {
     height: 100px;
     padding-top: 20px;
     .input-filter {
-      position:relative;
+      position: relative;
       display: inline-block;
       width: 60%;
       height: 35px;
@@ -78,16 +78,16 @@ elseis-play-filter {
           outline: none;
         }
       }
-      i{
+      i {
         position: absolute;
         top: 10px;
         right: 15px;
       }
     }
     .dropdown-filter {
-        i{
-  line-height: 36px;
-        }
+      i {
+        line-height: 36px;
+      }
       background-color: $black;
       width: 300px;
       float: right;
@@ -100,7 +100,7 @@ elseis-play-filter {
         align-items: center;
         padding: 0 10px;
         border-bottom: 1px solid $white;
-        &.dropdown-active{
+        &.dropdown-active {
           border-bottom: 1px solid $red;
         }
         label {
@@ -128,33 +128,32 @@ elseis-play-filter {
     }
   }
 
-  .load-all{
+  .load-all {
 
     padding: 0 10%;
-    label{
-      font-weight:normal;
-      &.load-all-label{
-        cursor:pointer;
+    label {
+      font-weight: normal;
+      &.load-all-label {
+        cursor: pointer;
       }
     }
   }
 
-  .plays-display  {
-    margin:0 auto;
-    min-height:330px;
-    display:block;
+  .plays-display {
+    margin: 0 auto;
+    display: block;
     background-color: $lowOpacityBlack;
   }
-  .loader-display  {
-    margin:0 auto;
-    min-height:330px;
+  .loader-display {
+    margin: 0 auto;
+    min-height: 330px;
     background-color: $lowOpacityBlack;
-display:table;
-    .loader{
-      display:table-cell;
+    display: table;
+    .loader {
+      display: table-cell;
       width: 60px;
       height: 60px;
-      margin:0 auto;
+      margin: 0 auto;
       background-image: url('http://alltheater.elseis.es/wp-content/themes/videotouch/images/loading.gif');
       background-repeat: no-repeat;
       background-size: 60px auto;

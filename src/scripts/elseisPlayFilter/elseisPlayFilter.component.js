@@ -63,6 +63,9 @@
             // reset total pages
             self.totalPages = 0;
 
+          if(!self.firstAllPages){
+            self.allPages = false;
+          }
             setSearchFilter();
             var playsApi;
 
@@ -72,7 +75,9 @@
                 setPagesInfo(response);
                 $timeout(function(){
                     self.loading = false;
-                }, 500)
+                }, 500);
+
+              self.firstAllPages = false;
             });
         }
 
@@ -83,6 +88,7 @@
 
         function loadWithoutPagination() {
             self.allPages = true;
+          self.firstAllPages = true;
             self.loadAllPlays();
         }
 
@@ -175,15 +181,8 @@
             self.selectedAuthor = '';
         }
 
-        /**
-         * @name  letterIsSelected
-         * @description
-         * Return if the letter is the selected one or not.
-         * @param letter
-         */
         function letterIsSelected(letter) {
             return self.selectedLetter == letter;
-
         }
 
 
@@ -196,14 +195,11 @@
         function toggleDropdown() {
             self.dropdownVisible = !self.dropdownVisible;
         }
-
         function selectDropdownOption(option) {
             self.selectedDropdownOption = option;
             self.toggleDropdown();
             _filterByDropdownCategory(option);
         }
-
-
         function _filterByDropdownCategory() {
             /**
              * 'más actuales': estreno <= hoy // order by fecha estreno desc
