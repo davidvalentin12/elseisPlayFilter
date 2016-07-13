@@ -38,6 +38,7 @@
         self.handleAuthorSelection = handleAuthorSelection;
         self.loadPlaysFilteredByKW = loadPlaysFilteredByKW;
         self.loadWithoutPagination = loadWithoutPagination;
+        self.loadAllWithNoKW = loadAllWithNoKW;
 
 
         /**
@@ -115,7 +116,7 @@
             if (self.allPages) {
                 self.currentSearchfilter = self.currentSearchfilter + '&filter[posts_per_page]=-1&filter[paged]=1';
             } else {
-                self.currentSearchfilter = self.currentSearchfilter + '&filter[posts_per_page]=4&filter[paged]=1';
+                self.currentSearchfilter = self.currentSearchfilter + '&filter[posts_per_page]=8&filter[paged]=1';
             }
         }
 
@@ -124,10 +125,16 @@
          */
         self.kwInput = '';
         function loadPlaysFilteredByKW() {
-            if ((self.kwInput.length > 3 || self.kwInput.length == 0) && self.kwInput != self.kw) {
+            if ((self.kwInput.length >2 || self.kwInput.length == 0) && self.kwInput != self.kw) {
                 self.kw = self.kwInput;
                 delay(self.loadAllPlays, 500);
             }
+        }
+
+        function loadAllWithNoKW(){
+            self.kw ='';
+            self.kwInput= '';
+            self.loadAllPlays()
         }
 
         var delay = (function () {
@@ -196,8 +203,8 @@
          * DROPDOWN
          */
         self.dropdownVisible = false;
-        self.dropdownOptions = ['más actuales', 'más visitas', 'mejor valoradas', 'próximamente'];
-        self.selectedDropdownOption = 'más visitas';
+        self.dropdownOptions = ['más actuales', 'más vistas', 'mejor valoradas', 'próximamente'];
+        self.selectedDropdownOption = 'más vistas';
         function toggleDropdown() {
             self.dropdownVisible = !self.dropdownVisible;
         }
@@ -210,7 +217,7 @@
             /**
              * 'más actuales': estreno <= hoy // order by fecha estreno desc
              *
-             * 'más visitas': order by views
+             * 'más vistas': order by views
              *
              * 'mejor valoradas': order by likes
              *
@@ -228,7 +235,7 @@
                 self.orderBy = 'likes';
                 self.filter = 'filter[meta_key]=_touchsize_likes&filter[order]=DESC&filter[orderby]=meta_value_num';
             }
-            if (self.selectedDropdownOption == 'más visitas') {
+            if (self.selectedDropdownOption == 'más vistas') {
                 self.orderBy = 'views';
                 self.filter = 'filter[meta_key]=ts_article_views&filter[order]=DESC&filter[orderby]=meta_value_num';
             }

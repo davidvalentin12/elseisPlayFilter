@@ -147,14 +147,17 @@ elseis-play-filter {
     padding-right:20px !important;
     label {
       font-weight: normal;
+      padding: 5px 0;
       &.load-all-label {
         cursor: pointer;
+        background-color: #ed174f !important;
+        padding: 5px 15px;
       }
     }
   }
 
   .plays-display {
-    margin: 0 auto;
+    margin: 15px auto;
     display: block;
     background-color: $lowOpacityBlack;
   }
@@ -184,13 +187,20 @@ elseis-play-filter {
     display: table;
     .no-results {
       text-align:center;
-      width:500px;
+      width:auto;
       height: 100px;
       margin: 0 auto;
       -webkit-filter: blur(0px);
       display: inline-block;
       clear: both;
       margin-top: 50px;
+
+      .load-all-label{
+        cursor: pointer;
+        background-color: #ed174f !important;
+        margin-top:5px;
+        padding: 5px 15px;
+      }
     }
   }
 

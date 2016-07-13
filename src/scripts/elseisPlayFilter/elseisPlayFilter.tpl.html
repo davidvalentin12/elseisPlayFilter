@@ -76,6 +76,11 @@
     <section class="no-results-display row" ng-show="elseisPlayFilterCtrl.totalPlays == 0 && !elseisPlayFilterCtrl.loading">
         <div class="no-results animated fadeIn">
            <label>No hay resultados para la búsqueda "{{elseisPlayFilterCtrl.kw}}"</label>
+            <br>
+            <label class="   load-all-label"
+                   ng-click="elseisPlayFilterCtrl.loadAllWithNoKW()"
+
+            >Ver todas</label>
 
         </div>
     </section>
